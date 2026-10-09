@@ -165,7 +165,7 @@ function exam(){
   <div class="card-title" style="margin-top:24px">SCORE PICK-UP / ผลคะแนนสอบ</div>${img(CFG.images.score)}
   <label class="l">การรับผลสอบ</label>
   <table><tr><th>TEST DATE</th><th>SELF PICK-UP DATE</th><th>EMS SENT OUT DATE</th></tr>${CFG.pickup.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2]||"-")}</td></tr>`).join("")}</table>
-  <label class="chk"><input type="checkbox" id="ackScore" ${d.ackScore?"checked":""}><span>Acknowledge / รับทราบวันรับผลสอบ และ: หากต้องการส่งไปรษณีย์ มีค่าจัดส่งเพิ่มเติม 50 บาท รับชำระเป็นเงินสดเท่านั้นในวันสอบ ผู้สอบเขียนจ่าหน้าซองที่อยู่สำหรับจัดส่งผลสอบด้วยตนเองในวันสอบ <span style="color:var(--red)">*</span></span></label><div class="err" id="e_ack"></div>`+nav();
+  <label class="chk"><input type="checkbox" id="ackScore" ${d.ackScore?"checked":""}><span>Acknowledge / รับทราบวันรับผลสอบ และ: หากต้องการส่งไปรษณีย์ มีค่าจัดส่งเพิ่มเติม 100 บาท รับชำระเป็นเงินสดเท่านั้นในวันสอบ ผู้สอบเขียนจ่าหน้าซองที่อยู่สำหรับจัดส่งผลสอบด้วยตนเองในวันสอบ <span style="color:var(--red)">*</span></span></label><div class="err" id="e_ack"></div>`+nav();
   $("#next").onclick=()=>{
     const v={date:pick("date"),round:pick("round"),ackScore:$("#ackScore").checked};
     setErr("date",v.date?"":"กรุณาเลือกวันสอบ");setErr("round",v.round?"":"กรุณาเลือกรอบสอบ");setErr("ack",v.ackScore?"":"กรุณากดรับทราบก่อนดำเนินการต่อ");
